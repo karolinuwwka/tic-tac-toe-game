@@ -19,7 +19,7 @@ def print_board(board):
 
 def is_valid_move(board, row, col):
     """
-    Pārbauda, vai gājiens ir derīgs.
+    Pārbauda, vai gājiens ir pareizs.
     """
     return 0 <= row < 3 and 0 <= col < 3 and board[row][col] == " "
 
@@ -28,17 +28,17 @@ def check_winner(board, player):
     """
     Pārbauda, vai pašreizējais spēlētājs ir uzvarējis.
     """
-    # Pārbaude rindās
+    # Pārbauda rindās
     for row in board:
         if all(cell == player for cell in row):
             return True
 
-    # Pārbaude kolonnās
+    # Pārbauda kolonnās
     for col in range(3):
         if all(board[row][col] == player for row in range(3)):
             return True
 
-    # Pārbaude diagonālēs
+    # Pārbauda diagonālēs
     if all(board[i][i] == player for i in range(3)) or all(board[i][2 - i] == player for i in range(3)):
         return True
 
